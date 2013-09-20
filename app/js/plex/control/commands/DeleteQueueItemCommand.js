@@ -23,7 +23,7 @@ define(
 
 			$.ajax({
 				type: 'DELETE',
-				url: '/api/pms/playlists/queue/items/' + item.id + '?X-Plex-Token=' + user.get('authentication_token'),
+				url: '/api/pms/playlists/queue/items/' + item.id + '?auth_token=' + user.get('authentication_token'),
 				data: '<queue_item></queue_item>',
 				headers: {
 					'X-Plex-Proxy-Host': 'my.plexapp.com',

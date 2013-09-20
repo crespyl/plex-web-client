@@ -34,7 +34,7 @@ define(
 			
 			// Append the authentication token if the user has logged in
 			if (options.myPlex === true) {
-				options.url += '?X-Plex-Token=' + user.get('authentication_token');
+				options.url += '?auth_token=' + user.get('authentication_token');
 				options.headers = {
 					'X-Plex-Proxy-Host': 'my.plexapp.com',
 					'X-Plex-Proxy-Port': 443
@@ -42,7 +42,7 @@ define(
 			} else if (typeof(server) !== 'undefined') {
 				var token = server.get('accessToken') ? server.get('accessToken') : user.get('authentication_token');
 				
-				options.url += '?X-Plex-Token=' + token;
+				options.url += '?auth_token=' + token;
 				options.headers = {
 					'X-Plex-Proxy-Host': server.get('host'),
 					'X-Plex-Proxy-Port': server.get('port')

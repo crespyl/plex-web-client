@@ -24,7 +24,7 @@ define(
 				var src = 'http://' + server.get('host') + ':' + server.get('port');
 				src += imagePath + encodeURIComponent('http://127.0.0.1:32400');
 				src += encodeURIComponent(path);
-				src += '&X-Plex-Token=' + (server.get('accessToken') ? server.get('accessToken') : user.get('authentication_token'));
+				src += '&auth_token=' + (server.get('accessToken') ? server.get('accessToken') : user.get('authentication_token'));
 				src += '&width=' + width + '&height=' + height;
 
 				return src;
@@ -35,7 +35,7 @@ define(
 				var user = appModel.get('user');
 
 				var url = 'http://' + server.get('host') + ':' + server.get('port') + path;
-				url += '?X-Plex-Token=' + (server.get('accessToken') ? server.get('accessToken') : user.get('authentication_token'));
+				url += '?auth_token=' + (server.get('accessToken') ? server.get('accessToken') : user.get('authentication_token'));
 
 				return url;
 			},
@@ -66,7 +66,7 @@ define(
 				var code = encode64(array_to_string(mac));
 
 				var requestURL = transcodeURL;
-				requestURL += '&X-Plex-Token=' + token;
+				requestURL += '&auth_token=' + token;
 				requestURL += '&X-Plex-Access-Key=' + publicKey;
 				requestURL += '&X-Plex-Access-Code=' + encodeURIComponent(code);
 				requestURL += '&X-Plex-Access-Time=' + time;

@@ -2,7 +2,7 @@ define(
 	function () {
 		return {
 			truncate: function (str, len) {
-				if (str.length > len) {
+				if (typeof str !== 'undefined' && str.length > len) {
 					var truncated = str.substring(0, len);
 
 					if (truncated.charAt(truncated.length - 1) === ' ') {
